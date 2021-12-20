@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,6 +31,14 @@ class HelloController extends AbstractController
 //        $res->setContent(json_encode(['msg' => 'Bonjour']));
 //
 //        return $res;
-        return $this->json(['msg' => 'Bonjour ' . $prenom]);
+        //return $this->json(['msg' => 'Bonjour ' . $prenom]);
+        $user = new User();
+        $user->setPrenom('<script></script>');
+        $user->setId(124);
+        $user->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
+
+        return $this->render('hello/bonjour.html.twig', [
+            'user' => $user,
+        ]);
     }
 }

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HelloController!{% endblock %}
+
+{% block body %}
+<h2>Bonjour {{ user.prenom | upper }}</h2>
+
+    {% if user.id %}
+        <p>id: {{ user.id }}</p>
+    {% endif %}
+
+    {% for role in user.roles %}
+        <p>{{ role }}</p>
+    {% else %}
+        <p>No roles</p>
+    {% endfor %}
+
+    {{ dump(user) }}
+    {{ dump(date('now')) }}
+    {{ dump(date('2021-01-01')) }}
+
+    {{ date('now') | date('H:i:s', 'Europe/Paris') }}
+{% endblock %}
