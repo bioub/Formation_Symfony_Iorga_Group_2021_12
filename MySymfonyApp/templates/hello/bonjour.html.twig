@@ -5,7 +5,7 @@
 {% block body %}
 <h2>Bonjour {{ user.prenom | upper }}</h2>
 
-    {% if user.id %}
+    {% if not user.id %}
         <p>id: {{ user.id }}</p>
     {% endif %}
 
@@ -13,6 +13,10 @@
         <p>{{ role }}</p>
     {% else %}
         <p>No roles</p>
+    {% endfor %}
+
+    {% for i in range(0, 10) %}
+        {{ i }}
     {% endfor %}
 
     {{ dump(user) }}
