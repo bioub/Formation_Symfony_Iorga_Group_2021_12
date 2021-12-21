@@ -36,6 +36,15 @@ class RecetteRepository extends ServiceEntityRepository
     }
     */
 
+    public function findAllWithUser()
+    {
+        return $this->createQueryBuilder('r')
+            ->leftJoin('r.author', 'a')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Recette
     {

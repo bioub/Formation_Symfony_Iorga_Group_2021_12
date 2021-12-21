@@ -1,5 +1,9 @@
 <nav>
     <img src="{{ asset('img/logo.png') }}" alt="Logo" width="20" />
     <a href="{{ path('app_recette_index') }}">Recettes</a>
-    <a href="{{ path('app_hello_bonjour', {prenom: 'Romain'}) }}">Bonjour Romain</a>
+    <a href="{{ path('app_hello_bonjour', {prenom: 'Romain'}) }}">Bonjour {{ app.user ? app.user.firstName : '' }}</a>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <a href="{{ path('app_user_create') }}">Ajouter un user</a>
+    {% endif %}
 </nav>

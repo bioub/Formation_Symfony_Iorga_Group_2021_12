@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User Creation{% endblock %}
+
+{% block body %}
+    <h2>User Creation</h2>
+
+    {{ form_start(userForm, {attr: {novalidate: 'novalidate'}}) }}
+        {#<div>
+            {{ form_label(userForm.firstName, 'Test', { label_attr: {class:'toto'}}) }}
+            {{ form_widget(userForm.firstName) }}
+            {{ form_errors(userForm.firstName) }}
+        </div>#}
+        {{ form_row(userForm.firstName) }}
+        {{ form_row(userForm.roles) }}
+        <button>+</button>
+    {{ form_end(userForm) }}
+{% endblock %}

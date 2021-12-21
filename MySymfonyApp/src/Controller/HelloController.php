@@ -33,8 +33,8 @@ class HelloController extends AbstractController
 //        return $res;
         //return $this->json(['msg' => 'Bonjour ' . $prenom]);
         $user = new User();
-        $user->setPrenom('<script></script>');
-        $user->setId(124);
+        $user->setFirstName('<script></script>');
+        // $user->setId(124);
         $user->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
 
         return $this->render('hello/bonjour.html.twig', [

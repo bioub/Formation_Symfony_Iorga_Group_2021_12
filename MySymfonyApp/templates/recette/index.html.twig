@@ -3,5 +3,15 @@
 {% block title %}Index{% endblock %}
 
 {% block body %}
-    <h1>Index</h1>
+    <h1>Recette</h1>
+
+    <ul>
+        {% for recette in recettes %}
+        <li>
+            <a href="{{ path('app_recette_details', {id: recette.id}) }}">
+                {{ recette.titre }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

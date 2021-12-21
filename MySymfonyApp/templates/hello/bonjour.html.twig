@@ -3,7 +3,7 @@
 {% block title %}Hello HelloController!{% endblock %}
 
 {% block body %}
-<h2>Bonjour {{ user.prenom | upper }}</h2>
+<h2>Bonjour {{ user.firstName | upper }}</h2>
 
     {% if not user.id %}
         <p>id: {{ user.id }}</p>
